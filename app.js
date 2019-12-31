@@ -1,7 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
 var passport = require('passport')
-const bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 require('dotenv').config();
@@ -14,11 +13,9 @@ const { localStrategy, jwtStrategy } = require('./controllers/auth/strategies');
 var app = express();
 
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
 app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,

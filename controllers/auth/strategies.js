@@ -1,4 +1,3 @@
-"use strict";
 const { Strategy: LocalStrategy } = require("passport-local");
 
 // Assigns the Strategy export to the name JwtStrategy using object destructuring
